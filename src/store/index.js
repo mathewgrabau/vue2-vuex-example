@@ -8,11 +8,36 @@ export default new Vuex.Store({
     firstName: 'Mathew',
     lastName: 'Grabau',
     favoriteColor: 'purple',
-    profession: 'engineer'
+    profession: 'engineer',
+    books: [
+      {
+        type: 'nonfiction', title: 'Truth about Cats', pages: 200
+      },
+      {
+        type: 'nonfiction', title: 'Truth about Dogs', pages: 100
+      },
+      {
+        type: 'fiction', title: 'The Cat Said Meow', pages: 400
+      },
+      {
+        type: 'fiction', title: 'The Last Dog', pages: 600
+      },
+    ]
   },
   getters: {
-    name (state) {
+    name(state) {
       return `${state.firstName} ${state.lastName}`
+    },
+    fiction(state) {
+      return state.books.filter(book => book.type === 'fiction')
+    },
+    nonfiction(state) {
+      return state.books.filter(book => book.type === 'nonfiction')
+    },
+    booksByMaxPages(state) {
+      return function (pages) {
+        return state.books.filter(book => book.pages <= pages)
+      }
     }
   },
   mutations: {
