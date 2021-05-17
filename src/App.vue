@@ -1,7 +1,9 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>
+      My name is {{ $store.state.name }} and my favorite color is {{ $store.state.favoriteColor }}. My profession is {{ $store.state.profession }}.
+    </p>
+    <hello-world />
   </div>
 </template>
 
