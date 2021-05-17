@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <p>
-      My full name is {{ $store.getters.name }} and my favorite color is
+      My full name is {{ name }} and my favorite color is
       {{ $store.state.favoriteColor }}. My profession is
       {{ $store.state.profession }}.
     </p>
@@ -40,6 +40,7 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import AboutMe from "./components/AboutMe.vue";
+import { mapState, mapGetters } from "vuex";
 
 export default {
   name: "App",
@@ -49,6 +50,10 @@ export default {
   },
   created() {
     this.$store.dispatch('loadBooks');
+  },
+  computed: {
+    ...mapState(["firstName", "lastName"]),
+    ...mapGetters(["name"])
   }
 };
 </script>
