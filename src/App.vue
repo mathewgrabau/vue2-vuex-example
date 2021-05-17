@@ -40,7 +40,7 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import AboutMe from "./components/AboutMe.vue";
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
   name: "App",
@@ -48,8 +48,13 @@ export default {
     HelloWorld,
     AboutMe
   },
+  methods: {
+    ...mapMutations(["setBooks"]),
+    ...mapActions(["loadBooks"])
+  },
   created() {
-    this.$store.dispatch('loadBooks');
+    // Now accessible directly without the $store object
+    this.loadBooks()
   },
   computed: {
     ...mapState(["firstName", "lastName"]),
