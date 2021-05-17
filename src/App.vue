@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <p>
-      My name is {{ $store.state.name }} and my favorite color is {{ $store.state.favoriteColor }}. My profession is {{ $store.state.profession }}.
+      My full name is {{ $store.getters.name }} and my favorite color is {{ $store.state.favoriteColor }}. My profession is {{ $store.state.profession }}.
     </p>
     <hello-world />
   </div>

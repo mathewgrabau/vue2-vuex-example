@@ -1,7 +1,7 @@
 <template>
   <div>
     <p>
-      This a component, {{ $store.state.name }}. It also accesses the state!
+      This a component, {{ $store.state.firstName }}. It also accesses the state!
     </p>
   </div>
 </template>
