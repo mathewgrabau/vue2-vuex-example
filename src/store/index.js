@@ -11,18 +11,6 @@ export default new Vuex.Store({
     profession: 'engineer',
     dogCount: 1,
     books: [
-      {
-        type: 'nonfiction', title: 'Truth about Cats', pages: 200
-      },
-      {
-        type: 'nonfiction', title: 'Truth about Dogs', pages: 100
-      },
-      {
-        type: 'fiction', title: 'The Cat Said Meow', pages: 400
-      },
-      {
-        type: 'fiction', title: 'The Last Dog', pages: 600
-      },
     ]
   },
   getters: {
@@ -49,9 +37,19 @@ export default new Vuex.Store({
       if (state.dogCount > 0) {
         state.dogCount--;
       }
+    },
+    setBooks(state, books) {
+      state.books = books
     }
   },
   actions: {
+    loadBooks(context) {
+      fetch('/data/books.json')
+        .then(res => res.json())
+        .then(res => {
+          context.commit('setBooks', res)
+        });
+    }
   },
   modules: {
   }

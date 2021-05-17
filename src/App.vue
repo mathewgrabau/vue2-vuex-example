@@ -47,6 +47,9 @@ export default {
     HelloWorld,
     AboutMe
   },
+  created() {
+    this.$store.dispatch('loadBooks');
+  }
 };
 </script>
 
