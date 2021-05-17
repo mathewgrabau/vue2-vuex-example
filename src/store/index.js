@@ -9,6 +9,7 @@ export default new Vuex.Store({
     lastName: 'Grabau',
     favoriteColor: 'purple',
     profession: 'engineer',
+    dogCount: 1,
     books: [
       {
         type: 'nonfiction', title: 'Truth about Cats', pages: 200
@@ -41,6 +42,14 @@ export default new Vuex.Store({
     }
   },
   mutations: {
+    addDog(state) {
+      state.dogCount++;
+    },
+    removeDog(state) {
+      if (state.dogCount > 0) {
+        state.dogCount--;
+      }
+    }
   },
   actions: {
   },

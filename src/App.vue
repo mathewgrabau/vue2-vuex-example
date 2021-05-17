@@ -6,7 +6,15 @@
       {{ $store.state.profession }}.
     </p>
 
+    <hr>
+
+    <about-me />
+
+    <hr>
+
     <hello-world />
+
+    <hr>
     <!-- Demonstrating the getters with parameters -->
     <h2>Fiction Books</h2>
     <ul>
@@ -31,11 +39,13 @@
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import AboutMe from "./components/AboutMe.vue";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
+    AboutMe
   },
 };
 </script>
